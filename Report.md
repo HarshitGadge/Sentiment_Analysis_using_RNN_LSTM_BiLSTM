@@ -110,6 +110,7 @@ random.seed(42)
 
 ### Architecture Comparison
 
+
 | Architecture | Average Accuracy | Average F1 | Average Epoch Time (s) | Number of Configs |
 |---------------|------------------|-------------|------------------------|--------------------|
 | RNN | 60.16% | 57.15% | 17.62 | 6 |
@@ -117,10 +118,14 @@ random.seed(42)
 | BiLSTM | 73.55% | 72.36% | 179.00 | 7 |
 
 **Observation:** BiLSTM significantly outperforms both LSTM and RNN architectures, but at a substantial computational cost.
+![Architecture Comparison](plots/architecture_comparison.png)
 
+*Figure 1: Comparison of average accuracy and training time across RNN, LSTM, and BiLSTM architectures. BiLSTM achieves highest accuracy but with significantly longer training times.*
 ---
 
 ### Sequence Length Impact
+
+
 
 | Sequence Length | Average Accuracy | Average F1 | Average Epoch Time (s) |
 |------------------|------------------|-------------|------------------------|
@@ -129,7 +134,9 @@ random.seed(42)
 | 100 words | 71.42% | 69.60% | 189.34 |
 
 **Observation:** Longer sequences (100 words) yield better performance but require significantly more computation time.
+![Sequence Length Impact](plots/sequence_length_impact.png)
 
+*Figure 2: Performance and training time vs sequence length. Longer sequences improve accuracy but dramatically increase computation time.*
 ---
 
 ### Optimizer Performance
@@ -141,7 +148,9 @@ random.seed(42)
 | SGD | 54.30% | 49.85% | 2/7 | 5/7 |
 
 **Observation:** Adam and RMSprop outperform SGD, which frequently fails to converge (50% accuracy = random guessing).
+![Optimizer Comparison](plots/optimizer_comparison.png)
 
+*Figure 3: Optimizer performance comparison showing Adam's reliability and SGD's frequent failures.*
 ---
 
 ### Activation Function Performance
@@ -151,7 +160,9 @@ random.seed(42)
 | ReLU | 67.45% | 65.82% | 77.27% (LSTM) |
 | Sigmoid | 68.92% | 66.78% | 83.03% (BiLSTM) |
 | Tanh | 69.82% | 68.71% | 81.33% (LSTM) |
+![Activation Comparison](plots/activation_comparison.png)
 
+*Figure 4: Activation function performance across different architectures.*
 ---
 
 ### Gradient Clipping Impact
@@ -160,7 +171,9 @@ random.seed(42)
 |----------------|------------------|-------------|--------------------|
 | Enabled | 67.84% | 65.92% | More stable |
 | Disabled | 68.25% | 66.45% | Faster when stable |
+![Gradient Clipping](plots/gradient_clipping_impact.png)
 
+*Figure 5: Effect of gradient clipping on model performance across different optimizers.*
 ---
 
 ## 5. Training Analysis
@@ -189,7 +202,9 @@ Epoch 08: Train Loss: 0.290 | Test Acc: 83.03% | Test F1: 83.01%
 Epoch 09: Train Loss: 0.260 | Test Acc: 82.32% | Test F1: 82.26%
 Epoch 10: Train Loss: 0.220 | Test Acc: 82.55% | Test F1: 82.54%
 ```
+![Training Curves](plots/training_curves_best_worst.png)
 
+*Figure 6: Training curves for best (BiLSTM) and worst (LSTM+SGD) configurations showing successful convergence vs complete failure.*
 ---
 
 ## 6. Discussion
@@ -222,6 +237,9 @@ LSTM + Tanh + Adam + 100-word sequences (No Gradient Clipping)
 | F1-Score | 81.32% |
 | Epoch Time | 112.77s |
 
+![Performance vs Computation](plots/performance_vs_computation.png)
+
+*Figure 7: Performance vs computation trade-off showing optimal configurations for different use cases.*
 **Reasoning:**
 - 6× faster than BiLSTM  
 - Only 1.7% accuracy loss  
