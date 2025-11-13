@@ -160,6 +160,7 @@ random.seed(42)
 | ReLU | 67.45% | 65.82% | 77.27% (LSTM) |
 | Sigmoid | 68.92% | 66.78% | 83.03% (BiLSTM) |
 | Tanh | 69.82% | 68.71% | 81.33% (LSTM) |
+
 ![Activation Comparison](plots/activation_comparison.png)
 
 *Figure 4: Activation function performance across different architectures.*
@@ -171,6 +172,7 @@ random.seed(42)
 |----------------|------------------|-------------|--------------------|
 | Enabled | 67.84% | 65.92% | More stable |
 | Disabled | 68.25% | 66.45% | Faster when stable |
+
 ![Gradient Clipping](plots/gradient_clipping_impact.png)
 
 *Figure 5: Effect of gradient clipping on model performance across different optimizers.*
