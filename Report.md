@@ -108,6 +108,10 @@ random.seed(42)
 
 ## 4. Performance Analysis
 
+> **Correction note (added later):** the sequence-length and optimizer tables in this section don't match the 20-run table in Section 3.
+> Recomputed from that table: sequence length 25 / 50 / 100 words → 68.8% / 68.3% / 66.3% average accuracy (the three runs stuck at 50% were all 100-word runs);
+> optimizers Adam 72.7% (9 runs), RMSprop 70.8% (5 runs), SGD 57.8% (6 runs). See the README for details.
+
 ### Architecture Comparison
 
 
